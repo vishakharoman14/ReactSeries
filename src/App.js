@@ -1,10 +1,19 @@
+import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
+  let time = new Date().toLocaleTimeString();
+
+  const [ctime, setCtime] = useState(time);
+  const UpdateTime = () => {
+    time = new Date().toLocaleTimeString();
+    setCtime(time);
+  };
+
+  setInterval(UpdateTime, 1000);
   return (
     <div className="App">
-      <h1>Hello Vishakha</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <h1>{ctime}</h1>
     </div>
   );
 }
